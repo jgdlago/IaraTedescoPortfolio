@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('professional_experiences', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('position');
-            $table->string('company');
-            $table->text('description');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('url');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('professional_experiences');
+        Schema::dropIfExists('images');
     }
 };

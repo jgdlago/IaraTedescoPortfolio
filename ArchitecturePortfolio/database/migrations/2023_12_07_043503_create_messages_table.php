@@ -13,16 +13,12 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->string('name', 255);
-            $table->string('email', 255);
-            $table->string('subject', 100);
+            $table->string('name');
+            $table->string('email');
+            $table->string('subject');
             $table->text('message');
-            $table->timestamp('send_date')->default(now());
+            $table->timestamp('send_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 

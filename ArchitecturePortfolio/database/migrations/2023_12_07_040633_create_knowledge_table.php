@@ -13,14 +13,9 @@ return new class extends Migration
     {
         Schema::create('knowledge', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->string('title', 100);
+            $table->string('title');
             $table->text('description');
-            $table->string('icon', 255)->nullable();
+            $table->string('icon');
             $table->timestamps();
         });
     }
